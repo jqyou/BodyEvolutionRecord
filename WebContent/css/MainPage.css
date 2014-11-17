@@ -458,3 +458,24 @@ body {
   visibility:hidden;
   word-wrap:break-word;
 }
+#u39 {
+  position:absolute;
+  left:850px;
+  top:32px;
+  width:100px;
+  height:30px;
+}
+#u39_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:30px;
+}
+#u40 {
+  position:absolute;
+  left:2px;
+  top:8px;
+  width:96px;
+  word-wrap:break-word;
+}
