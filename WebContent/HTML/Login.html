@@ -8,6 +8,30 @@
     <link href="/BodyEvolutionRecord/css/axure_rp.css" type="text/css" rel="stylesheet">
     <link href="/BodyEvolutionRecord/data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="/BodyEvolutionRecord/css/login.css" type="text/css" rel="stylesheet"/>
+    <script src="/BodyEvolutionRecord/js/jQuery1.82.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$("#u9").click(function(){
+    		window.location.href="/BodyEvolutionRecord/HTML/Register.html";
+    	}); //Register change to another page
+    	
+    	$("#u8").click(function(){
+    		var username = $("#u6_input").val();
+    		$.post("/BodyEvolutionRecord/Login",{
+    			UserName:username,
+    			UserPwD:$("#u7_input").val()
+    		},function(data){
+    			if (data == "false"){
+    				alert("The user does not exsit!");
+    			} else if (data == "true") {
+    				
+                  window.location.href="/BodyEvolutionRecord/HTML/MainPage.html";
+    				
+    			}
+    		});
+    	});
+    });
+    </script>
   </head>
   <body>
     <div id="base" class="">
