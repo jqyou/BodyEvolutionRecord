@@ -1,6 +1,5 @@
 package com.servlet;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -16,16 +15,16 @@ import javax.servlet.http.HttpSession;
 import com.javabeans.ConnectDB;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class ViewPicture
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/ViewPicture")
+public class ViewPicture extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public ViewPicture() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,49 +41,46 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//String pic =request.getParameter("Pic");
+
+	
+		//System.out.println(pic);
+		PrintWriter out = response.getWriter();
+		
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
+
+
+		String username = request.getSession().getAttribute("name").toString();
+		System.out.println(username);
+
+	
+	//	HttpSession session = request.getSession();
+		ConnectDB connect = new ConnectDB();
+		String[] sqlparam = {username};
+		int[] WhichInt = {0};
+		ResultSet rsUserID= connect.executeQuery("select Pic from Login where UserName=?",sqlparam, WhichInt);
 		try {
-			boolean isexist = checkUser(request, response);
-			if(isexist){
-				out.print("true");
-			} else {
-				out.print("false");
+			if(rsUserID.next()){
+				if(rsUserID.getString("Pic")!=null){
+				 //   session.setAttribute("pic", rsUserID.getString("Pic"));
+				    out.print(rsUserID.getString("Pic"));
+				    System.out.println(rsUserID.getString("Pic"));
+				}
+				else{
+					//session.setAttribute("pic", "/BodyEvolutionRecord/images/userinfor/u4.png");
+					out.print("/BodyEvolutionRecord/images/userinfor/u4.png");
+				}
 			}
-			
 		} catch (SQLException e) {
-			out.print("false");
+			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-	}
-	
-	boolean checkUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException{
-//		PrintWriter out = response.getWriter();
-		String username = request.getParameter("UserName");
-		String password =request.getParameter("UserPwD");
-
-		System.out.println(username);
-		System.out.println(password);
-	
-		HttpSession session = request.getSession();
-		ConnectDB connect = new ConnectDB();
-		String[] sqlparam = {username,password};
-		int[] WhichInt = {0,0};
-		ResultSet rsUserID= connect.executeQuery("select * from Login where UserName=? and PwD=?",sqlparam, WhichInt);
-		if(rsUserID.next()) {
-			session.setAttribute("name", username);
-			session.setAttribute("email",rsUserID.getString("Email"));
-			session.setAttribute("phone", rsUserID.getString("Phone"));
-			if(rsUserID.getString("Pic")!=null){
-			session.setAttribute("pic", rsUserID.getString("Pic"));}
-			return true;
-		} else {
-			return false;
-		}
-	
+		
 
 	}
 
 }
-

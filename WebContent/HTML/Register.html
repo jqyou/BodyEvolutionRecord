@@ -1,16 +1,20 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Register</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <link href="/BodyEvolutionRecord/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="/BodyEvolutionRecord/data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="/BodyEvolutionRecord/css/register.css" type="text/css" rel="stylesheet"/>
-    <script src="/BodyEvolutionRecord/js/jQuery1.82.js" type="text/javascript"></script>
-    <script type="text/javascript">
+<head>
+<title>Register</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<link href="/BodyEvolutionRecord/css/axure_rp_page.css" type="text/css"
+	rel="stylesheet" />
+<link href="/BodyEvolutionRecord/data/styles.css" type="text/css"
+	rel="stylesheet" />
+<link href="/BodyEvolutionRecord/css/register.css" type="text/css"
+	rel="stylesheet" />
+<script src="/BodyEvolutionRecord/js/jQuery1.82.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
     $(document).ready(function() {  
     	$("#u14").click(function(){
     		$.post("/BodyEvolutionRecord/Register",{
@@ -20,94 +24,129 @@
     			phone:$("#u11_input").val(),
     		},function(data){
     			if (data == "false"){
-    				alert("Please input correct information");
+    				alert("Please input correct information!");
     			} else if (data == "true") {
     				alert("Regist Success!");
     				window.location.href="/BodyEvolutionRecord/HTML/Login.html";
     			}
-    		});
-    	});
-    });
-    </script>
-    
-  </head>
-  <body>
-    <div id="base" class="">
+		});
+	});
+});
+</script>
+<script type="text/javascript">
 
-      <!-- Unnamed (Image) -->
-      <div id="u0" class="ax_image">
-        <img id="u0_img" class="img " src="/BodyEvolutionRecord/images/Register/u0.jpg"/>
-        <!-- Unnamed () -->
-        <div id="u1" class="text">
-          <p><span></span></p>
-        </div>
-      </div>
+function r() //Reset the information
+{ 
+  $("#u4_input").val("");
+  $("#u7_input").val("");
+  $("#u10_input").val("");
+  $("#u11_input").val("");
+}
 
-      <!-- Unnamed (Shape) -->
-      <div id="u2" class="ax_paragraph">
-        <img id="u2_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
-        <!-- Unnamed () -->
-        <div id="u3" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';font-weight:400;">UserName</span><span style="font-family:'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar';font-weight:200;">：</span></p>
-        </div>
-      </div>
+</script>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u4" class="ax_text_field">
-        <input id="u4_input" type="text" value="" class="text_sketch"/>
-      </div>
+</head>
+<body>
+	<div id="base" class="">
 
-      <!-- Unnamed (Shape) -->
-      <div id="u5" class="ax_paragraph">
-        <img id="u5_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
-        <!-- Unnamed () -->
-        <div id="u6" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';font-weight:400;">Password</span><span style="font-family:'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar';font-weight:200;">：</span></p>
-        </div>
-      </div>
+		<!-- Unnamed (Image) -->
+		<div id="u0" class="ax_image">
+			<img id="u0_img" class="img "
+				src="/BodyEvolutionRecord/images/Register/u0.jpg" />
+			<!-- Unnamed () -->
+			<div id="u1" class="text">
+				<p>
+					<span></span>
+				</p>
+			</div>
+		</div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u7" class="ax_text_field">
-        <input id="u7_input" type="password" value="" class="text_sketch"/>
-      </div>
+		<!-- Unnamed (Shape) -->
+		<div id="u2" class="ax_paragraph">
+			<img id="u2_img" class="img "
+				src="/BodyEvolutionRecord/images/transparent.gif" />
+			<!-- Unnamed () -->
+			<div id="u3" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar'; font-weight: 400;">UserName</span><span
+						style="font-family: 'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar'; font-weight: 200;">：</span>
+				</p>
+			</div>
+		</div>
 
-      <!-- Unnamed (Shape) -->
-      <div id="u8" class="ax_paragraph">
-        <img id="u8_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
-        <!-- Unnamed () -->
-        <div id="u9" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Email</span><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">：</span></p>
-        </div>
-      </div>
+		<!-- Unnamed (Text Field) -->
+		<div id="u4" class="ax_text_field">
+			<input id="u4_input" type="text" value="" class="text_sketch" />
+		</div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u10" class="ax_text_field">
-        <input id="u10_input" type="email" value="" class="text_sketch"/>
-      </div>
+		<!-- Unnamed (Shape) -->
+		<div id="u5" class="ax_paragraph">
+			<img id="u5_img" class="img "
+				src="/BodyEvolutionRecord/images/transparent.gif" />
+			<!-- Unnamed () -->
+			<div id="u6" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar'; font-weight: 400;">Password</span><span
+						style="font-family: 'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar'; font-weight: 200;">：</span>
+				</p>
+			</div>
+		</div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u11" class="ax_text_field">
-        <input id="u11_input" type="tel" value="" class="text_sketch"/>
-      </div>
+		<!-- Unnamed (Text Field) -->
+		<div id="u7" class="ax_text_field">
+			<input id="u7_input" type="password" value="" class="text_sketch" />
+		</div>
 
-      <!-- Unnamed (Shape) -->
-      <div id="u12" class="ax_paragraph">
-        <img id="u12_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
-        <!-- Unnamed () -->
-        <div id="u13" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';font-weight:400;">Phone</span><span style="font-family:'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar';font-weight:200;">：</span></p>
-        </div>
-      </div>
+		<!-- Unnamed (Shape) -->
+		<div id="u8" class="ax_paragraph">
+			<img id="u8_img" class="img "
+				src="/BodyEvolutionRecord/images/transparent.gif" />
+			<!-- Unnamed () -->
+			<div id="u9" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">Email</span><span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">：</span>
+				</p>
+			</div>
+		</div>
 
-      <!-- Unnamed (HTML Button) -->
-      <div id="u14" class="ax_html_button">
-        <input id="u14_input" type="submit" value="Submit" class="text_sketch"/>
-      </div>
+		<!-- Unnamed (Text Field) -->
+		<div id="u10" class="ax_text_field">
+			<input id="u10_input" type="email" value="" class="text_sketch" />
+		</div>
 
-      <!-- Unnamed (HTML Button) -->
-      <div id="u15" class="ax_html_button">
-        <input id="u15_input" type="submit" value="Reset" class="text_sketch"/>
-      </div>
-    </div>
-  </body>
+		<!-- Unnamed (Text Field) -->
+		<div id="u11" class="ax_text_field">
+			<input id="u11_input" type="tel" value="" class="text_sketch" />
+		</div>
+
+		<!-- Unnamed (Shape) -->
+		<div id="u12" class="ax_paragraph">
+			<img id="u12_img" class="img "
+				src="/BodyEvolutionRecord/images/transparent.gif" />
+			<!-- Unnamed () -->
+			<div id="u13" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar'; font-weight: 400;">Phone</span><span
+						style="font-family: 'ArialHebrewScholar-Light', 'Arial Hebrew Scholar Light', 'Arial Hebrew Scholar'; font-weight: 200;">：</span>
+				</p>
+			</div>
+		</div>
+
+		<!-- Unnamed (HTML Button) -->
+		<div id="u14" class="ax_html_button">
+			<input id="u14_input" type="submit" value="Submit"
+				class="text_sketch" />
+		</div>
+
+		<!-- Unnamed (HTML Button) -->
+		<div id="u15" class="ax_html_button">
+			<input id="u15_input" type="submit" value="Reset" class="text_sketch" onclick="r()" />
+		</div>
+	</div>
+</body>
 </html>

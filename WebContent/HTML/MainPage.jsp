@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
     <link href="/BodyEvolutionRecord/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="/BodyEvolutionRecord/data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="/BodyEvolutionRecord/css/MainPage.css" type="text/css" rel="stylesheet"/>
@@ -13,14 +17,40 @@
     <script type="text/javascript">
     $(document).ready(function() {
     	$("#u39").click(function(){
-    		window.location.href="/BodyEvolutionRecord/HTML/UserInfo.html";
+    		window.location.href="/BodyEvolutionRecord/HTML/UserInfo.jsp";
     	});
     	$("#u4").click(function(){
     		window.location.href="/BodyEvolutionRecord/HTML/Login.html";
     	});
     	$("#u2").click(function(){
-    		window.location.href="/BodyEvolutionRecord/HTML/TakePhoto.html";
+    		window.location.href="/BodyEvolutionRecord/HTML/TakePicture2.html";
     	});
+    	
+   
+   
+      $.post("/BodyEvolutionRecord/MainPage", { }, function (data, status) {      
+	    if (status == "success") {  
+	    	var strs= new Array(); //定义一数组 
+	    	strs=data.split(","); //字符分割 
+	    	for (i=0;i<strs.length ;i++ ) 
+	    	{ 
+	    		
+	    	//  $("#u19").append("<div id="testdiv" class="ax_image"/>");
+	    	  $("#u19").append("<img id='testpicture'  class='img' src='"+strs[i]+"'/>");
+	    	 
+	    	} 
+	    	
+           // $("#pictest").remove(); 
+            
+	    	//$("#u4").append("<img id='pictest' class='img' src='"+data+"'/>");
+	       // $("#u4_img").remove();
+	    
+	    }     
+	    else {   
+	        alert("获取图片失败");                 
+	    }               
+	}, "text");
+
     });
    </script>
   </head>
@@ -41,7 +71,7 @@
         <img id="u2_img" class="img " src="/BodyEvolutionRecord/images/MainPage/u2.png"/>
         <!-- Unnamed () -->
         <div id="u3" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Upload</span></p>
+          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Take Picture</span></p>
         </div>
       </div>
 
@@ -50,7 +80,15 @@
         <img id="u4_img" class="img " src="/BodyEvolutionRecord/images/MainPage/u4.png"/>
         <!-- Unnamed () -->
         <div id="u5" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Login</span></p>
+          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">
+          <%if(session.getAttribute("name")==null)
+            {
+        	  %>Login<%
+            }
+            else
+            	{%><%=session.getAttribute("name").toString() %><%}
+          %>
+          </span></p>
         </div>
       </div>
 

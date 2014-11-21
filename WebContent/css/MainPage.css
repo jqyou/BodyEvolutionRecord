@@ -479,3 +479,20 @@ body {
   width:96px;
   word-wrap:break-word;
 }
+#testpicture
+{
+  position:relative;
+  left:0px;
+  top:0px;
+  width:208px;
+  height:192px;
+}
+/* .imgtest
+{
+	position:relative;
+  left:2px;
+  top:4px;
+  width:113px;
+//  visibility:hidden;
+  word-wrap:break-word;
+} */

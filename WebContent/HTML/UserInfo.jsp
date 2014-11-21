@@ -1,5 +1,6 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
     <title>UserInfo</title>
@@ -10,6 +11,7 @@
     <link href="/BodyEvolutionRecord/data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="/BodyEvolutionRecord/css/userinfo.css" type="text/css" rel="stylesheet"/>
   </head>
+  
   <body>
     <div id="base" class="">
 
@@ -33,7 +35,18 @@
 
       <!-- Unnamed (Image) -->
       <div id="u4" class="ax_image">
-        <img id="u4_img" class="img " src="/BodyEvolutionRecord/images/userinfor/u4.png"/>
+  
+        <img id="u4_img" class="img " 
+       
+        <%if(session.getAttribute("pic")==null)
+            {
+        	  %>src="/BodyEvolutionRecord/images/userinfor/u4.png"<%
+            }
+            else
+            	{
+            	 %>src="<%=session.getAttribute("pic").toString()%>"<%
+            	}
+          %>/>
         <!-- Unnamed () -->
         <div id="u5" class="text">
           <p><span></span></p>
@@ -73,7 +86,7 @@
         <!-- Unnamed () -->
         <div id="u13" class="text">
           <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';" >
-          
+          <%=session.getAttribute("name").toString() %>
           </span></p>
         </div>
       </div>
@@ -83,7 +96,9 @@
         <img id="u14_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
         <!-- Unnamed () -->
         <div id="u15" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Jackie@gmail.com</span></p>
+          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">
+         <%=session.getAttribute("email").toString() %>
+          </span></p>
         </div>
       </div>
 
@@ -92,26 +107,20 @@
         <img id="u16_img" class="img " src="/BodyEvolutionRecord/images/transparent.gif"/>
         <!-- Unnamed () -->
         <div id="u17" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">2528-0948</span></p>
+          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">
+          <%=session.getAttribute("phone").toString() %>
+          </span></p>
         </div>
       </div>
       <!-- Unnamed (Image) -->
       <div id="u19" class="ax_image">
-        <img id="u19_img" class="img " src="/BodyEvolutionRecord/images/userinfor/u19.jpg"/>
+        <img id="u19_img" class="img " src="/BodyEvolutionRecord/images/userinfor/u19.jpg" />
         <!-- Unnamed () -->
         <div id="u20" class="text">
           <p><span></span></p>
         </div>
       </div>
 
-      <!-- Unnamed (Shape) -->
-      <div id="u21" class="ax_shape">
-        <img id="u21_img" class="img " src="/BodyEvolutionRecord/images/userinfor/u21.png"/>
-        <!-- Unnamed () -->
-        <div id="u22" class="text">
-          <p><span style="font-family:'ArialHebrewScholar', 'Arial Hebrew Scholar';">Upload</span></p>
-        </div>
-      </div>
 
       <!-- Unnamed (Horizontal Line) -->
       <div id="u23" class="ax_horizontal_line">
