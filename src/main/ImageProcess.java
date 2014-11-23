@@ -1,5 +1,7 @@
 package main;
 
+
+
 import org.opencv.core.Core;
 
 import contour.ContourReco;
@@ -11,7 +13,7 @@ public class ImageProcess {
 		// TODO Auto-generated method stub
 		
 		
-		String inputFile = "resources/AverageMaleFace.jpg";
+		String inputFile = "/Users/Daisy/documents/workspaceforEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BodyEvolutionRecord/IMAGE/yjq154pic.jpg";
 		String outputFile = "src/male_canny.jpg";
 		
 		run(inputFile, outputFile);

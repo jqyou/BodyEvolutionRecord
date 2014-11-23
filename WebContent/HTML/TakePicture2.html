@@ -84,10 +84,15 @@
 	$(document).ready(function() {
 		$("#u8").click(function () {
 			$.post("/BodyEvolutionRecord/ViewPicture", { }, function (data, status) {      
-			    if (status == "success") {      
+			    if (status == "success") {  
+			    	var strs= new Array(); //定义一数组 
+			    	strs=data.split(","); //字符分割 
 	                $("#pictest").remove(); 
+	                $("#picline").remove(); 
 	                
-			    	$("#u4").append("<img id='pictest' class='img' src='"+data+"'/>");
+			    	$("#u4").append("<img id='pictest' class='img' src='"+strs[0]+"'/>");
+			    	$("#pictest").append("<img id='picline' class='img' src='"+strs[1]+"'/>");
+			    	
 			       // $("#u4_img").remove();
 			    
 			    }     
@@ -162,6 +167,19 @@
 				<p>
 					<span
 						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">View</span>
+				</p>
+			</div>
+		</div>
+		
+		<!-- Unnamed (Shape) -->
+		<div id="u13" class="ax_shape">
+			<img id="u13_img" class="img "
+				src="/BodyEvolutionRecord/images/TakePhoto/u6.png" />
+			<!-- Unnamed () -->
+			<div id="u14" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">Make Video</span>
 				</p>
 			</div>
 		</div>

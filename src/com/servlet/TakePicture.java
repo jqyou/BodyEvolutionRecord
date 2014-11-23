@@ -15,10 +15,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.opencv.core.*;
+
+//import main.ImageProcess;
+
+
+
+
+
+
+import main.ImageProcess;
 
 import com.javabeans.ConnectDB;
 
 import sun.misc.BASE64Decoder;
+
+
 
 
 
@@ -40,6 +52,9 @@ public class TakePicture extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
+
+	@SuppressWarnings("static-access")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
@@ -60,33 +75,45 @@ public class TakePicture extends HttpServlet {
 		}
 		HttpSession session = request.getSession();
 		Random rd = new Random();   
-		int c = rd.nextInt(1000)+1;   
+		int c = rd.nextInt(1000)+1; 
+		int d=rd.nextInt(500)+1;
 		String ranStr = String.valueOf(c);  
+		String ranStr1=String.valueOf(d);
 		String username=session.getAttribute("name").toString() ;
 		String imageName = username +ranStr+"pic.jpg";//随机生成照片路径，区分用户
+		String imagefaceName=username+ranStr1+"picline.jpg";//勾出轮廓后照片的路径
 		
 		String relativePath = getServletContext().getContextPath() + "/IMAGE/" + imageName;//存在数据库中的路径
+		String relativePath1=getServletContext().getContextPath() + "/IMAGE/" + imagefaceName;
 		System.out.println(relativePath);
+		System.out.println(relativePath1);
 	//	String path = request.getParameter("relativepath");
+		
 
 		
-		String[] sqlparam = {username,relativePath};
+		String[] sqlparam = {username,relativePath,relativePath1};
 		String[] sqlparam1 = {relativePath,username};
-		int[] WhichInt = {0,0};
+		String[] sqlparam2 = {relativePath1,username};
+		int[] WhichInt = {0,0,0};
 		int[] WhichInt1={0,0};
-		String sqlString = "insert into Picture (UserName,Pic) values(?,?)";
+		int[] WhichInt2={0,0};
+		String sqlString = "insert into Picture (UserName,Pic,Picline) values(?,?,?)";
 		String sqlString1="update Login set Pic=? where UserName=?";
+		String sqlString2="update Login set Picline=? where UserName=?";
 		
 		ConnectDB connect = new ConnectDB();
 		boolean isSuccess = connect.updatesql(sqlString, sqlparam, WhichInt);
 		boolean isSuccess1= connect.updatesql(sqlString1, sqlparam1, WhichInt1);
+		boolean isSuccess2= connect.updatesql(sqlString2, sqlparam2, WhichInt2);
 		
-		if(isSuccess&&isSuccess1){
+		if(isSuccess&&isSuccess1&&isSuccess2){
 			System.out.println("true");
 		} else {
 			System.out.println("false");
 		}
 		String obsolutelyPath = getServletContext().getRealPath("IMAGE")+File.separatorChar + imageName;
+		System.out.println(obsolutelyPath);
+		String obsolutelyPath1 = getServletContext().getRealPath("IMAGE")+File.separatorChar + imagefaceName; 
 		
 
 		String imageString = request.getParameter("img");	
@@ -96,6 +123,7 @@ public class TakePicture extends HttpServlet {
 		try{
 			BASE64Decoder decoder = new BASE64Decoder();
 			OutputStream  writes = new FileOutputStream(obsolutelyPath);
+		//	OutputStream  writes1 = new FileOutputStream(obsolutelyPath1);
 	        
 	        byte[] decoderBytes = decoder.decodeBuffer(imageString);
 	        for (int i = 0; i < decoderBytes.length; i++) {
@@ -106,7 +134,18 @@ public class TakePicture extends HttpServlet {
 	        writes.write(decoderBytes);
 	        writes.flush();
 	        writes.close();
+	    
+	      /*  writes1.write(decoderBytes);
+	        writes1.flush();
+	        writes1.close();*/
 	        System.out.println("Decoding the picture Success");
+	        
+	       // ImageProcess ip=new ImageProcess();//处理图像
+	        //ip.run(obsolutelyPath, obsolutelyPath1);
+	    
+	       ImageProcess IP=new ImageProcess();
+	       IP.run(obsolutelyPath,obsolutelyPath1);
+	        
 	        out.print("OK");
             
         } catch (FileNotFoundException e) {

@@ -9,7 +9,7 @@
 #snap{
   position:absolute;
   left:500px;
-  top:230px;
+  top:200px;
   width:100px;
   height:30px;
 
@@ -105,7 +105,7 @@ body {
 #u6 {
   position:absolute;
   left:500px;
-  top:230px;
+  top:200px;
   width:100px;
   height:30px;
 }
@@ -126,7 +126,7 @@ body {
 #u8 {
   position:absolute;
   left:500px;
-  top:310px;
+  top:270px;
   width:100px;
   height:30px;
 }
@@ -200,4 +200,39 @@ body {
   top:-61px;
   width:450px;
   height:330px;
+}
+#picface{
+  position:absolute;
+  left:660px;
+  top:0px;
+  width:450px;
+  height:330px;
+}
+#picline{
+  position:absolute;
+  left:660px;
+  top:10px;
+  width:450px;
+  height:330px;
+}
+#u13 {
+  position:absolute;
+  left:500px;
+  top:340px;
+  width:100px;
+  height:30px;
+}
+#u13_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:30px;
+}
+#u14 {
+  position:absolute;
+  left:2px;
+  top:8px;
+  width:96px;
+  word-wrap:break-word;
 }
