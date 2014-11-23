@@ -13,9 +13,10 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/Daisy/Downloads/javacv-cppjars/opencv-2.4.8-macosx-x86_64.jar"/>
-	<classpathentry kind="lib" path="/Users/Daisy/Downloads/javacv-bin/javacpp.jar"/>
-	<classpathentry kind="lib" path="/Users/Daisy/Downloads/javacv-bin/javacv-macosx-x86_64.jar"/>
-	<classpathentry kind="lib" path="/Users/Daisy/Downloads/javacv-bin/javacv.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/Daisy/Downloads/opencv-2.4.9/release/bin/opencv-249.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/Daisy/Downloads/opencv-2.4.9/release/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
