@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.opencv.core.*;
+
 
 //import main.ImageProcess;
 
@@ -114,7 +114,7 @@ public class TakePicture extends HttpServlet {
 		String obsolutelyPath = getServletContext().getRealPath("IMAGE")+File.separatorChar + imageName;
 		System.out.println(obsolutelyPath);
 		String obsolutelyPath1 = getServletContext().getRealPath("IMAGE")+File.separatorChar + imagefaceName; 
-		
+		System.out.println(obsolutelyPath1);
 
 		String imageString = request.getParameter("img");	
 		if (imageString.equals("") || imageString == null)
@@ -145,6 +145,7 @@ public class TakePicture extends HttpServlet {
 	    
 	       ImageProcess IP=new ImageProcess();
 	       IP.run(obsolutelyPath,obsolutelyPath1);
+	       
 	        
 	        out.print("OK");
             

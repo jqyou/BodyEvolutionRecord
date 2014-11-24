@@ -62,12 +62,12 @@ public class MainPage extends HttpServlet {
 				
 				 //   session.setAttribute("pic", rsUserID.getString("Pic"));
 				    String tempresult=rsUserID.getString("Pic");
-				    result = tempresult + "," +result ;
+				    result = result + "," + tempresult;
 				   
 				    System.out.println(result);
 			}
 			if (!result.equals("")){
-				result = result.substring(1, result.length() - 1);
+				result = result.substring(1, result.length());
 			}
 			
 			out.print(result);

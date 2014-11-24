@@ -60,8 +60,7 @@
 							CatchCode();
 						});
 					}, false);
-	 
-	
+
 	// var interval = setInterval(CatchCode, "300");  
 	//$(document).ready(function() {
 	function CatchCode() {
@@ -81,27 +80,82 @@
 			}
 		}, "text");
 	}
-	$(document).ready(function() {
-		$("#u8").click(function () {
-			$.post("/BodyEvolutionRecord/ViewPicture", { }, function (data, status) {      
-			    if (status == "success") {  
-			    	var strs= new Array(); //定义一数组 
-			    	strs=data.split(","); //字符分割 
-	                $("#pictest").remove(); 
-	                $("#picline").remove(); 
-	                
-			    	$("#u4").append("<img id='pictest' class='img' src='"+strs[0]+"'/>");
-			    	$("#pictest").append("<img id='picline' class='img' src='"+strs[1]+"'/>");
-			    	
-			       // $("#u4_img").remove();
-			    
-			    }     
-			    else {   
-			        alert("获取图片失败");                 
-			    }               
-			}, "text");
-		});
-	});  
+	$(document)
+			.ready(
+					function() {
+						$("#u8")
+								.click(
+										function() {
+											$
+													.post(
+															"/BodyEvolutionRecord/ViewPicture",
+															{},
+															function(data,
+																	status) {
+																if (status == "success") {
+																	var strs = new Array(); //定义一数组 
+																	strs = data
+																			.split(","); //字符分割 
+																	$(
+																			"#pictest")
+																			.remove();
+																	$(
+																			"#picline")
+																			.remove();
+
+																	$("#u4")
+																			.append(
+																					"<img id='pictest' class='img' src='"+strs[0]+"'/>");
+																	$("#u4")
+																			.append(
+																					"<img id='picline' class='img' src='"+strs[1]+"'/>");
+
+																	// $("#u4_img").remove();
+
+																} else {
+																	alert("获取图片失败");
+																}
+															}, "text");
+										});
+						$("#u13")
+								.click(
+										function() {
+											$
+													.post(
+															"/BodyEvolutionRecord/MakeVideo",
+															{},
+															function(data,
+																	status) {
+															if (status == "success") {
+																if (data == "OK") {
+																	alert("success!");}
+																 else {
+																		alert("failure!");}
+															}
+															
+															
+														}, "text");
+										});
+						$("#u15")
+						.click(
+								function() {
+									$
+											.post(
+													"/BodyEvolutionRecord/ViewVideo",
+													{},
+													function(data,
+															status) {
+														if (status == "success") {
+															$("video-container").remove();
+															$("#u4").append("<video id='video-contaniner' poster='http://www.html5rocks.com/en/tutorials/video/basics/star.png' controls>"
+										                            +"<source src='"+data+"' type='video/mp4' /></video>");
+
+														} else {
+															alert("没有此视频");
+														}
+													}, "text");
+								});
+					});
 	//});
 </script>
 </head>
@@ -170,7 +224,7 @@
 				</p>
 			</div>
 		</div>
-		
+
 		<!-- Unnamed (Shape) -->
 		<div id="u13" class="ax_shape">
 			<img id="u13_img" class="img "
@@ -179,7 +233,22 @@
 			<div id="u14" class="text">
 				<p>
 					<span
-						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">Make Video</span>
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">Make
+						Video</span>
+				</p>
+			</div>
+		</div>
+		
+		<!-- Unnamed (Shape) -->
+		<div id="u15" class="ax_shape">
+			<img id="u15_img" class="img "
+				src="/BodyEvolutionRecord/images/TakePhoto/u6.png" />
+			<!-- Unnamed () -->
+			<div id="u16" class="text">
+				<p>
+					<span
+						style="font-family: 'ArialHebrewScholar', 'Arial Hebrew Scholar';">View
+						Video</span>
 				</p>
 			</div>
 		</div>
@@ -205,12 +274,14 @@
 			<img id="u12_line" class="img "
 				src="/BodyEvolutionRecord/images/TakePhoto/u12_line.png"
 				alt="u12_line" />
+				
 		</div>
 	</div>
 
 	<div id="contentHolder">
 		<video id="video" width="320" height="320" autoplay>
 		</video>
+		
 		<button id="snap" class="ax_shape">
 
 			<p>
@@ -222,6 +293,12 @@
 		</button>
 		<canvas style="display: none" id="canvas" width="320" height="320">
 </canvas>
-	</div>
+ </div>
+  <!-- <div class="video-container">
+   
+      <video poster="http://www.html5rocks.com/en/tutorials/video/basics/star.png" controls>
+        <source src="/BodyEvolutionRecord/video/Daisy349.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+      </video>
+    </div> -->
 </body>
 </html>

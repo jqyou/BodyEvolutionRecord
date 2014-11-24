@@ -10,21 +10,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.javabeans.ConnectDB;
 
 /**
- * Servlet implementation class ViewPicture
+ * Servlet implementation class ViewVideo
  */
-@WebServlet("/ViewPicture")
-public class ViewPicture extends HttpServlet {
+@WebServlet("/ViewVideo")
+public class ViewVideo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewPicture() {
+    public ViewVideo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,39 +40,28 @@ public class ViewPicture extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		//String pic =request.getParameter("Pic");
-
-	
-		//System.out.println(pic);
 		PrintWriter out = response.getWriter();
-	//	PrintWriter out1=response.getWriter();
-		
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
 
 		String username = request.getSession().getAttribute("name").toString();
 		System.out.println(username);
-
-	
-	//	HttpSession session = request.getSession();
 		ConnectDB connect = new ConnectDB();
 		String[] sqlparam = {username};
-		int[] WhichInt = {0,0};
-		ResultSet rsUserID= connect.executeQuery("select Pic,Picline from Login where UserName=?",sqlparam, WhichInt);
+		int[] WhichInt = {0};
+		ResultSet rsUserID= connect.executeQuery("select Video from Login where UserName=?",sqlparam, WhichInt);
 		try {
 			if(rsUserID.next()){
-				if(rsUserID.getString("Pic")!=null&&rsUserID.getString("Picline")!=null){
-				 //   session.setAttribute("pic", rsUserID.getString("Pic"));
-				    out.print(rsUserID.getString("Pic")+","+rsUserID.getString("Picline"));
-				    System.out.println(rsUserID.getString("Pic")+","+rsUserID.getString("Picline"));
+				if(rsUserID.getString("Video")!=null){
+				
+				    out.print("/Users/Daisy/Documents/workspaceforEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"+rsUserID.getString("Video"));
+				    System.out.println(rsUserID.getString("Video"));
 				  
 				}
 				else{
-					//session.setAttribute("pic", "/BodyEvolutionRecord/images/userinfor/u4.png");
-					out.print("/BodyEvolutionRecord/images/userinfor/u4.png"+","+"/BodyEvolutionRecord/images/userinfor/u4.png");
+				
+					out.print("");
 				}
 			}
 		} catch (SQLException e) {
@@ -84,5 +72,6 @@ public class ViewPicture extends HttpServlet {
 		
 
 	}
+	}
 
-}
+
