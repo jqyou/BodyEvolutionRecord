@@ -55,7 +55,7 @@ public class ViewVideo extends HttpServlet {
 			if(rsUserID.next()){
 				if(rsUserID.getString("Video")!=null){
 				
-				    out.print("/Users/Daisy/Documents/workspaceforEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/"+rsUserID.getString("Video"));
+				    out.print(rsUserID.getString("Video"));
 				    System.out.println(rsUserID.getString("Video"));
 				  
 				}

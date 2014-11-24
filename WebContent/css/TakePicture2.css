@@ -204,16 +204,16 @@ body {
 }
 #picface{
   position:absolute;
-  left:660px;
-  top:0px;
-  width:450px;
+  left:280px;
+  top:300px;
+  width:400px;
   height:330px;
 }
 #picline{
  position:absolute;
-  left:660px;
+  left:720px;
   top:300px;
-  width:450px;
+  width:400px;
   height:330px;
 }
 #u13 {
@@ -260,9 +260,9 @@ body {
 }
 video {
   position:absolute;
-  width: 400px;
-  height: 300px;
-  left:-90px;
+  width: 350px;
+  height: 330px;
+  left:-110px;
   top:300px;
   
   border: 1px solid black;

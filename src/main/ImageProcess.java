@@ -39,13 +39,24 @@ public class ImageProcess {
 	//   System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 	   System.load("/Users/Daisy/downloads/opencv-2.4.9/release/lib/libopencv_java249.dylib");
 
-		// Amout of faces can be deteced in the picture now.
+		/*// Amout of faces can be deteced in the picture now.
 		int faces = new DetectFace().run(inputFile, outputFile);
 		
-		warningOfFaces(faces);
+		warningOfFaces(faces);*/
 		
 		new ContourReco().run(inputFile, outputFile);
 	}
+	
+	public static void facerun(String inputFile, String outputFile) {
+		//   System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		   System.load("/Users/Daisy/downloads/opencv-2.4.9/release/lib/libopencv_java249.dylib");
+
+			// Amout of faces can be deteced in the picture now.
+			int faces = new DetectFace().run(inputFile, outputFile);
+			
+			warningOfFaces(faces);
+			
+		}
 
 	
 	public static void makeVideo(Vector<String> inputPictures, String fileName, int width, int height) throws MalformedURLException {

@@ -61,19 +61,19 @@ public class ViewPicture extends HttpServlet {
 	//	HttpSession session = request.getSession();
 		ConnectDB connect = new ConnectDB();
 		String[] sqlparam = {username};
-		int[] WhichInt = {0,0};
-		ResultSet rsUserID= connect.executeQuery("select Pic,Picline from Login where UserName=?",sqlparam, WhichInt);
+		int[] WhichInt = {0,0,0};
+		ResultSet rsUserID= connect.executeQuery("select Pic,Picline,Picface from Login where UserName=?",sqlparam, WhichInt);
 		try {
 			if(rsUserID.next()){
-				if(rsUserID.getString("Pic")!=null&&rsUserID.getString("Picline")!=null){
+				if(rsUserID.getString("Pic")!=null&&rsUserID.getString("Picline")!=null&&rsUserID.getString("Picface")!=null){
 				 //   session.setAttribute("pic", rsUserID.getString("Pic"));
-				    out.print(rsUserID.getString("Pic")+","+rsUserID.getString("Picline"));
-				    System.out.println(rsUserID.getString("Pic")+","+rsUserID.getString("Picline"));
+				    out.print(rsUserID.getString("Pic")+","+rsUserID.getString("Picline")+","+rsUserID.getString("Picface"));
+				    System.out.println(rsUserID.getString("Pic")+","+rsUserID.getString("Picline")+","+rsUserID.getString("Picface"));
 				  
 				}
 				else{
 					//session.setAttribute("pic", "/BodyEvolutionRecord/images/userinfor/u4.png");
-					out.print("/BodyEvolutionRecord/images/userinfor/u4.png"+","+"/BodyEvolutionRecord/images/userinfor/u4.png");
+					out.print("/BodyEvolutionRecord/images/userinfor/u4.png"+","+"/BodyEvolutionRecord/images/userinfor/u4.png"+"/BodyEvolutionRecord/images/userinfor/u4.png");
 				}
 			}
 		} catch (SQLException e) {
