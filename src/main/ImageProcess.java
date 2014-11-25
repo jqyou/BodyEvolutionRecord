@@ -3,35 +3,51 @@ package main;
 
 
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Vector;
 
 
 
+
+
+
+
+
+import javax.imageio.ImageIO;
 import javax.media.MediaLocator;
 
 
+
+
+
+
+
+
+import org.jcodec.api.SequenceEncoder;
 
 import contour.ContourReco;
 import face.DetectFace;
 import video.JpegImagesToMovie;
 
 public class ImageProcess {
-
-	/*public static void main(String[] args) throws MalformedURLException {
+/*
+	public static void main(String[] args) throws MalformedURLException {
 		// TODO Auto-generated method stub
 		
 		
-		String inputFile = "/Users/Daisy/documents/workspaceforEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BodyEvolutionRecord/IMAGE/yjq154pic.jpg";
-		String outputFile = "/male_canny.jpg";
+		String inputFile = "/Users/Daisy/documents/workspaceforEE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/BodyEvolutionRecord/IMAGE/Daisy776pic.jpg";
+		String outputFile = "src/male_canny.jpg";
 		
-		run(inputFile, outputFile);
-		String video = "src/video.mp4";
+		facerun(inputFile, outputFile);
+	//	String video = "src/video.mp4";
 		//transVideo(pictures, video);
-		Vector<String> pics = new Vector<String>();
-		pics.add("");
+	//	Vector<String> pics = new Vector<String>();
+	//	pics.add("");
 		
-		makeVideo(pics, video, 320, 320);
+	//	makeVideo(pics, video, 320, 320);
 		
 	}*/
 	
@@ -69,6 +85,14 @@ public class ImageProcess {
 	    int interval = 1000;
 	    imageToMovie.doIt(width, height, (1000 / interval), inputPictures, oml);
 
+	}
+	public static void sequenceVideo(Vector<String> inputPictures, String outputFile) throws IOException {
+	    SequenceEncoder encoder = new SequenceEncoder(new File(outputFile));
+	    for(int i = 0; i < inputPictures.size(); i++) {
+	    	BufferedImage bi = ImageIO.read(new File(inputPictures.get(i)));
+	    	encoder.encodeImage(bi);
+	    }
+	    encoder.finish();
 	}
 	
 	public static void warningOfFaces(int faces) {

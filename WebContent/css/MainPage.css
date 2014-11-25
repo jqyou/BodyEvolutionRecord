@@ -438,17 +438,17 @@ body {
 }
 #u37 {
   position:absolute;
-  left:80px;
-  top:727px;
-  width:117px;
-  height:23px;
+  left:64px;
+  top:142px;
+  width:205px;
+  height:48px;
 }
 #u37_img {
   position:absolute;
   left:0px;
   top:0px;
-  width:117px;
-  height:23px;
+  width:205px;
+  height:48px;
 }
 #u38 {
   position:absolute;
@@ -482,8 +482,9 @@ body {
 #testpicture
 {
   position:relative;
-  left:0px;
   top:0px;
+  left:10px;
+  
   width:208px;
   height:192px;
 }

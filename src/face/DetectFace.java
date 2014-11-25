@@ -20,8 +20,10 @@ public class DetectFace {
 
         // Create a face detector from the cascade file in the resources
         // directory.
-        CascadeClassifier faceDetector = new CascadeClassifier("data/haarcascades/haarcascade_frontalface_alt.xml");
+        CascadeClassifier faceDetector = new CascadeClassifier("/Users/Daisy/downloads/opencv-2.4.9/data/haarcascades/haarcascade_frontalface_alt.xml");
         Mat image = imread(inputFile);
+      //  System.out.println("haha");
+      //  System.out.println(faceDetector.empty());
 
         // Detect faces in the image.
         // MatOfRect is a special container class for Rect.

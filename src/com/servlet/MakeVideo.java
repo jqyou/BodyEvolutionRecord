@@ -124,7 +124,7 @@ public class MakeVideo extends HttpServlet {
 		}
 		
 
-		IP.makeVideo(pics, obsolutelyPath, 320,320);
+		IP.sequenceVideo(pics, obsolutelyPath);
 		out.print("OK");
 		
 		

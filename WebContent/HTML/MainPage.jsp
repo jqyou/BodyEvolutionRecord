@@ -32,11 +32,34 @@
 	    if (status == "success") {  
 	    	var strs= new Array(); //定义一数组 
 	    	strs=data.split(","); //字符分割 
+	    
 	    	for (i=0;i<strs.length ;i++ ) 
 	    	{ 
-	    		
+	    	
 	    	//  $("#u19").append("<div id="testdiv" class="ax_image"/>");
-	    	  $("#u19").append("<img id='testpicture'  class='img' src='"+strs[i]+"'/>");
+	    	if(i==0){
+	    	  $("#u0").append("<img id='u9_img'  class='img' src='"+strs[i]+"'/>");}
+	    	if(i==1){
+	    		$("#u0").append("<img id='u11'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==2){
+	    		$("#u0").append("<img id='u13'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==3){
+	    		$("#u0").append("<img id='u15'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==4){
+	    		$("#u0").append("<img id='u17'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==5){
+	    		$("#u0").append("<img id='u23'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==6){
+	    		$("#u0").append("<img id='u25'  class='img' src='"+strs[i]+"'/>");
+	    	}
+	    	if(i==7){
+	    		$("#u0").append("<img id='u27'  class='img' src='"+strs[i]+"'/>");
+	    	}
 	    	 
 	    	} 
 	    	
@@ -154,22 +177,22 @@
       </div>
 
       <!-- Unnamed (Image) -->
-      <div id="u19" class="ax_image">
+     <!--  <div id="u19" class="ax_image">
         <img id="u19_img" class="img " src="/BodyEvolutionRecord/images/MainPage/u19.png"/>
-        <!-- Unnamed () -->
+        Unnamed ()
         <div id="u20" class="text">
           <p><span></span></p>
         </div>
       </div>
-
-      <!-- Unnamed (Image) -->
+ -->
+  <!--     Unnamed (Image)
       <div id="u21" class="ax_image">
         <img id="u21_img" class="img " src="/BodyEvolutionRecord/images/MainPage/u21.png"/>
-        <!-- Unnamed () -->
+        Unnamed ()
         <div id="u22" class="text">
           <p><span></span></p>
         </div>
-      </div>
+      </div> -->
 
       <!-- Unnamed (Image) -->
       <div id="u23" class="ax_image">

@@ -21,5 +21,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="/Users/Daisy/Downloads/jmf.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/Daisy/Downloads/jcodec-0.1.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
